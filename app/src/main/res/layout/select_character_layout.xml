@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="values"
+            type="com.example.cypher_near.model.CypherCharacterSheet" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="42dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black">
+
+                <ImageView
+                    android:id="@+id/charThumbnail"
+                    android:layout_width="122dp"
+                    android:layout_height="96dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/charName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{values.charName}"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/charThumbnail"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/mightIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="might"
+                    app:layout_constraintEnd_toEndOf="@+id/mightPoolTextView"
+                    app:layout_constraintStart_toStartOf="@+id/mightPoolTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/charName"
+                    app:srcCompat="@drawable/ic_might"
+                    app:tint="@color/prime_bright" />
+
+                <TextView
+                    android:id="@+id/mightPoolTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    setPoolStats="@{values.mightPool}"
+                    android:textColor="@color/prime_bright"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/speedPoolTextView"
+                    app:layout_constraintStart_toEndOf="@+id/charThumbnail"
+                    app:layout_constraintTop_toBottomOf="@+id/mightIcon" />
+
+                <ImageView
+                    android:id="@+id/speedIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/speedPoolTextView"
+                    app:layout_constraintStart_toStartOf="@+id/speedPoolTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/charName"
+                    app:srcCompat="@drawable/ic_speed"
+                    app:tint="@android:color/holo_green_light" />
+
+
+                <TextView
+                    android:id="@+id/speedPoolTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    setPoolStats="@{values.speedPool}"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/intellectPoolTextView"
+                    app:layout_constraintStart_toEndOf="@+id/mightPoolTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/speedIcon" />
+
+
+                <ImageView
+                    android:id="@+id/intellectIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/intellectPoolTextView"
+                    app:layout_constraintStart_toStartOf="@+id/intellectPoolTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/charName"
+                    app:srcCompat="@drawable/ic_intellect"
+                    app:tint="?android:attr/textColorLink" />
+
+                <TextView
+                    android:id="@+id/intellectPoolTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    setPoolStats="@{values.intelPool}"
+                    android:textColor="?android:attr/textColorLink"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/speedPoolTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/intellectIcon" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
